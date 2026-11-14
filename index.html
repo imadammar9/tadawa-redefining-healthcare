@@ -6,6 +6,11 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>TADAWA · Redefining the Healthcare Journey</title>
 <meta name="robots" content="noindex">
+<meta name="description" content="TADAWA: telemedicine and primary care in Jordan. Your family doctor as the first point of contact, 24/7, in the app or in our clinics.">
+<meta property="og:title" content="TADAWA · Redefining the Healthcare Journey">
+<meta property="og:description" content="Telemedicine and primary care in Jordan: your family doctor first, 24/7.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0e8098">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- Readex Pro covers Latin and Arabic. Swap for brand fonts (local @font-face in fonts/) if the brand has them. -->
@@ -132,6 +137,20 @@ a.vid:hover img,a.vid:focus-visible img{transform:scale(1.045)}
 .ctrl button:hover{background:rgba(255,255,255,.12)}
 .ctrl button:focus-visible{box-shadow:0 0 0 3px rgba(127,191,205,.7)}
 .ctrl .count{color:rgba(255,255,255,.85);font-size:14px;letter-spacing:.08em;padding:0 10px;min-width:62px;text-align:center;font-variant-numeric:tabular-nums}
+/* ux-pass-v1: AA contrast for small text */
+.src{color:var(--ink-600)}
+.dark .src{color:rgba(255,255,255,.72)}
+.brand .foot .pg{color:rgba(255,255,255,.82)}
+.jr.bad .jh .jn{color:#9e322c}
+.row.hero .s{color:rgba(255,255,255,.92)}
+/* phone held upright: the 16:9 slide is tiny, so suggest turning it */
+#rotate{display:none;position:fixed;top:calc(16px + env(safe-area-inset-top,0px));left:16px;right:16px;z-index:25;align-items:center;gap:14px;background:#3a3536;color:#fff;border-radius:16px;padding:14px 16px;font:500 16px/1.4 var(--font);letter-spacing:.02em}
+#rotate i{font-size:30px;color:var(--brand-glow);flex:none}
+#rotate span{flex:1}
+#rotate button{all:unset;cursor:pointer;width:44px;height:44px;display:grid;place-items:center;border-radius:50%;flex:none;font-size:20px}
+#rotate button:focus-visible{box-shadow:0 0 0 3px rgba(127,191,205,.7)}
+@media (orientation:portrait) and (max-width:700px){#rotate:not([hidden]){display:flex}}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 #fstoast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom,0px));transform:translate(-50%,8px);max-width:min(560px,calc(100vw - 32px));background:#3a3536;color:#fff;font:400 15px/1.5 var(--font);letter-spacing:.03em;padding:12px 18px;border-radius:14px;box-shadow:0 2px 6px rgba(35,31,32,.06),0 8px 24px rgba(17,94,109,.08);opacity:0;pointer-events:none;transition:opacity .32s,transform .32s;z-index:30;text-align:center}
 #fstoast.show{opacity:1;transform:translate(-50%,0)}
 .bar{position:absolute;bottom:0;inset-inline-start:0;height:5px;background:var(--brand-glow);z-index:5;transition:width .8s var(--ease-out)}
@@ -321,6 +340,10 @@ h2{font-size:60px;line-height:1.2;text-transform:uppercase;letter-spacing:.02em}
 .icn5 i{display:block;font-size:46px;color:var(--brand);margin-bottom:8px}
 .quote{background:var(--gradient);color:var(--white);border-radius:var(--r-lg);padding:30px 44px}
 .quote p{font-size:31px;line-height:1.5;margin:0} .quote span{display:block;font-size:22px;color:var(--on-brand-muted);margin-top:14px}
+/* ux-pass-v1: AA contrast, placed last so it wins over earlier rules */
+.slide .src{color:var(--ink-600)}
+.dark .src{color:rgba(255,255,255,.72)}
+.row.hero .s{color:#fff}
 </style>
 </head>
 <body>
@@ -396,9 +419,9 @@ h2{font-size:60px;line-height:1.2;text-transform:uppercase;letter-spacing:.02em}
       <div>
         <p class="col-l" data-a>Current footprint</p>
         <div class="rows">
-          <div class="row" data-a><i class="ph-fill ph-map-pin ri"></i><div><b>Amman</b><span class="s">Dedicated primary care clinic</span></div></div>
-          <div class="row" data-a><i class="ph-fill ph-map-pin ri"></i><div><b>Al Tafileh</b><span class="s">Top-tier medical center</span></div></div>
-          <div class="row" data-a><i class="ph-fill ph-map-pin ri"></i><div><b>Irbid</b><span class="s">Partner primary care clinic</span></div></div>
+          <div class="row" data-a><i class="ph-fill ph-map-pin ri" aria-hidden="true"></i><div><b>Amman</b><span class="s">Dedicated primary care clinic</span></div></div>
+          <div class="row" data-a><i class="ph-fill ph-map-pin ri" aria-hidden="true"></i><div><b>Al Tafileh</b><span class="s">Top-tier medical center</span></div></div>
+          <div class="row" data-a><i class="ph-fill ph-map-pin ri" aria-hidden="true"></i><div><b>Irbid</b><span class="s">Partner primary care clinic</span></div></div>
         </div>
       </div>
       <div>
@@ -420,12 +443,12 @@ h2{font-size:60px;line-height:1.2;text-transform:uppercase;letter-spacing:.02em}
     <p class="eyebrow" data-a>The problem we solve</p>
     <h2 data-a>Two patient journeys</h2>
     <div class="jr bad" data-a style="margin-top:50px">
-      <div class="jh"><span class="jt"><i class="ph-fill ph-warning"></i>Today: the fragmented pathway</span><span class="jn">Higher costs · poor experience</span></div>
-      <div class="jf"><div class="jb">Google search</div><i class="ph-bold ph-arrow-right ja"></i><div class="jb">Specialist</div><i class="ph-bold ph-arrow-right ja"></i><div class="jb">Labs/Images</div><i class="ph-bold ph-arrow-right ja"></i><div class="jb">Hospital</div></div>
+      <div class="jh"><span class="jt"><i class="ph-fill ph-warning" aria-hidden="true"></i>Today: the fragmented pathway</span><span class="jn">Higher costs · poor experience</span></div>
+      <div class="jf"><div class="jb">Google search</div><i class="ph-bold ph-arrow-right ja" aria-hidden="true"></i><div class="jb">Specialist</div><i class="ph-bold ph-arrow-right ja" aria-hidden="true"></i><div class="jb">Labs/Images</div><i class="ph-bold ph-arrow-right ja" aria-hidden="true"></i><div class="jb">Hospital</div></div>
     </div>
     <div class="jr good" data-a style="margin-top:32px">
       <div class="jh"><span class="jt">With TADAWA: the guided journey</span><span class="jn">Lower costs · better outcomes</span></div>
-      <div class="jf"><div class="jb on"><div><b>Family doctor first</b><span class="s">Most cases resolved here</span></div><i class="ph-fill ph-check-circle" style="font-size:44px"></i></div><i class="ph-bold ph-arrow-right ja"></i><div class="jb"><b>Specialist</b><span class="s">Complex cases</span></div><i class="ph-bold ph-arrow-right ja"></i><div class="jb"><b>Hospital</b><span class="s">Only when needed</span></div></div>
+      <div class="jf"><div class="jb on"><div><b>Family doctor first</b><span class="s">Most cases resolved here</span></div><i class="ph-fill ph-check-circle" aria-hidden="true" style="font-size:44px"></i></div><i class="ph-bold ph-arrow-right ja" aria-hidden="true"></i><div class="jb"><b>Specialist</b><span class="s">Complex cases</span></div><i class="ph-bold ph-arrow-right ja" aria-hidden="true"></i><div class="jb"><b>Hospital</b><span class="s">Only when needed</span></div></div>
     </div>
   </div>
   <div class="foot"><img src="img/logo-color.svg" alt=""><span class="pg">06</span></div>
@@ -465,10 +488,10 @@ h2{font-size:60px;line-height:1.2;text-transform:uppercase;letter-spacing:.02em}
     <h2 data-a>Quality care, wherever you are.</h2>
     <p class="lead" data-a style="max-width:1300px">High-quality consultations through your smartphone, with the family doctors who know your history.</p>
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:36px;margin-top:70px">
-      <div class="vcols" data-a><i class="ph-fill ph-lightning vi"></i><h3>Instant access</h3><p>Quality care the moment you need it, no waiting room.</p></div>
-      <div class="vcols" data-a><i class="ph-fill ph-check-circle vi"></i><h3>Seamless experience</h3><p>A simple digital journey from booking to follow-up.</p></div>
-      <div class="vcols" data-a><i class="ph-fill ph-devices vi"></i><h3>Any device anywhere</h3><p>Compatible with all <span class="lat">iOS</span> and <span class="lat">Android</span> devices; consult at home, in the office or even abroad.</p></div>
-      <div class="vcols" data-a><i class="ph-fill ph-calendar-check vi"></i><h3>Every need</h3><p>Routine check-ups, specialist consultations and prescription refills.</p></div>
+      <div class="vcols" data-a><i class="ph-fill ph-lightning vi" aria-hidden="true"></i><h3>Instant access</h3><p>Quality care the moment you need it, no waiting room.</p></div>
+      <div class="vcols" data-a><i class="ph-fill ph-check-circle vi" aria-hidden="true"></i><h3>Seamless experience</h3><p>A simple digital journey from booking to follow-up.</p></div>
+      <div class="vcols" data-a><i class="ph-fill ph-devices vi" aria-hidden="true"></i><h3>Any device anywhere</h3><p>Compatible with all <span class="lat">iOS</span> and <span class="lat">Android</span> devices; consult at home, in the office or even abroad.</p></div>
+      <div class="vcols" data-a><i class="ph-fill ph-calendar-check vi" aria-hidden="true"></i><h3>Every need</h3><p>Routine check-ups, specialist consultations and prescription refills.</p></div>
     </div>
   </div>
   <div class="foot"><img src="img/logo-white.svg" alt=""><span class="pg">09</span></div>
@@ -481,9 +504,9 @@ h2{font-size:60px;line-height:1.2;text-transform:uppercase;letter-spacing:.02em}
     <p class="eyebrow" data-a>TADAWA + primary care</p>
     <h2 data-a>Your family doctor, always on call.</h2>
     <div class="grid3" style="margin-top:70px">
-      <div class="card" data-a><div class="icbox"><i class="ph-fill ph-clock"></i></div><h3>Always available</h3><p>Expert medical advice and support at any hour of the day or night.</p></div>
-      <div class="card" data-a><div class="icbox"><i class="ph-fill ph-globe-hemisphere-east"></i></div><h3>Care anywhere</h3><p>See your family doctor from home, the office, or even while traveling abroad.</p></div>
-      <div class="card" data-a><div class="icbox"><i class="ph-fill ph-shield-check"></i></div><h3>Immediate peace of mind</h3><p>Skip the waiting room and get fast, reliable answers the moment concerns arise.</p></div>
+      <div class="card" data-a><div class="icbox"><i class="ph-fill ph-clock" aria-hidden="true"></i></div><h3>Always available</h3><p>Expert medical advice and support at any hour of the day or night.</p></div>
+      <div class="card" data-a><div class="icbox"><i class="ph-fill ph-globe-hemisphere-east" aria-hidden="true"></i></div><h3>Care anywhere</h3><p>See your family doctor from home, the office, or even while traveling abroad.</p></div>
+      <div class="card" data-a><div class="icbox"><i class="ph-fill ph-shield-check" aria-hidden="true"></i></div><h3>Immediate peace of mind</h3><p>Skip the waiting room and get fast, reliable answers the moment concerns arise.</p></div>
     </div>
   </div>
   <div class="foot"><span></span><span class="pg">10</span></div>
@@ -513,14 +536,14 @@ h2{font-size:60px;line-height:1.2;text-transform:uppercase;letter-spacing:.02em}
     <p class="eyebrow" data-a>How it works</p>
     <h2 data-a>From symptom to treatment <em>in five steps</em></h2>
     <div class="hw">
-      <div class="hs" data-a><span class="hn">1</span><b>Open the app</b><span class="s">Sign in to TADAWA on your phone.</span><i class="ph-bold ph-arrow-right ha"></i></div>
-      <div class="hs" data-a><span class="hn">2</span><b>Tap Treat Me Now or schedule a remote visit</b><span class="s">Request care any time, day or night.</span><i class="ph-bold ph-arrow-right ha"></i></div>
-      <div class="hs on" data-a><span class="hn">3</span><b>See a family doctor</b><span class="s">Audio &amp; video</span><i class="ph-bold ph-arrow-right ha"></i></div>
-      <div class="hs" data-a><span class="hn">4</span><b>Get what you need</b><span class="s">Prescription, sick leave, lab request.</span><i class="ph-bold ph-arrow-right ha"></i></div>
+      <div class="hs" data-a><span class="hn">1</span><b>Open the app</b><span class="s">Sign in to TADAWA on your phone.</span><i class="ph-bold ph-arrow-right ha" aria-hidden="true"></i></div>
+      <div class="hs" data-a><span class="hn">2</span><b>Tap Treat Me Now or schedule a remote visit</b><span class="s">Request care any time, day or night.</span><i class="ph-bold ph-arrow-right ha" aria-hidden="true"></i></div>
+      <div class="hs on" data-a><span class="hn">3</span><b>See a family doctor</b><span class="s">Audio &amp; video</span><i class="ph-bold ph-arrow-right ha" aria-hidden="true"></i></div>
+      <div class="hs" data-a><span class="hn">4</span><b>Get what you need</b><span class="s">Prescription, sick leave, lab request.</span><i class="ph-bold ph-arrow-right ha" aria-hidden="true"></i></div>
       <div class="hs" data-a><span class="hn">5</span><b>Follow up</b><span class="s">Care plan and records stay in the app.</span></div>
-      <div class="ref" data-a><i class="ph-bold ph-arrow-up ru"></i><span class="rl"><b>Specialist referral</b>When needed</span></div>
+      <div class="ref" data-a><i class="ph-bold ph-arrow-up ru" aria-hidden="true"></i><span class="rl"><b>Specialist referral</b>When needed</span></div>
     </div>
-    <div class="tip" data-a style="margin-top:64px"><i class="ph-fill ph-house ti"></i><span><b>Need to be seen in person?</b> Book a clinic, office or home visit from the same app.</span></div>
+    <div class="tip" data-a style="margin-top:64px"><i class="ph-fill ph-house ti" aria-hidden="true"></i><span><b>Need to be seen in person?</b> Book a clinic, office or home visit from the same app.</span></div>
   </div>
   <div class="foot"><img src="img/logo-color.svg" alt=""><span class="pg">12</span></div>
 </section>
@@ -532,7 +555,7 @@ h2{font-size:60px;line-height:1.2;text-transform:uppercase;letter-spacing:.02em}
       <p class="eyebrow" data-a>The TADAWA app</p>
       <h2 data-a>Primary care <em>in your pocket</em></h2>
       <p class="lead" data-a style="font-size:27px;margin-top:22px">A comprehensive digital healthcare platform with round-the-clock access to primary care and certified family doctors, bridging physical and remote medicine.</p>
-      <div class="rows" style="margin-top:28px;gap:14px"><div class="row" data-a style="padding:16px 28px"><i class="ph-fill ph-video-camera ri"></i><div><b style="font-weight:500">Immediate video consultations</b></div></div><div class="row" data-a style="padding:16px 28px"><i class="ph-fill ph-clock ri"></i><div><b style="font-weight:500">Scheduled remote consultations</b></div></div><div class="row" data-a style="padding:16px 28px"><i class="ph-fill ph-house ri"></i><div><b style="font-weight:500">In-person clinic appointments</b></div></div><div class="row" data-a style="padding:16px 28px"><i class="ph-fill ph-database ri"></i><div><b style="font-weight:500">Complete medical records on your phone</b></div></div></div>
+      <div class="rows" style="margin-top:28px;gap:14px"><div class="row" data-a style="padding:16px 28px"><i class="ph-fill ph-video-camera ri" aria-hidden="true"></i><div><b style="font-weight:500">Immediate video consultations</b></div></div><div class="row" data-a style="padding:16px 28px"><i class="ph-fill ph-clock ri" aria-hidden="true"></i><div><b style="font-weight:500">Scheduled remote consultations</b></div></div><div class="row" data-a style="padding:16px 28px"><i class="ph-fill ph-house ri" aria-hidden="true"></i><div><b style="font-weight:500">In-person clinic appointments</b></div></div><div class="row" data-a style="padding:16px 28px"><i class="ph-fill ph-database ri" aria-hidden="true"></i><div><b style="font-weight:500">Complete medical records on your phone</b></div></div></div>
     </div>
     <div class="media" data-a><div class="phone" style="width:330px"><img src="img/app-home.jpg" alt="TADAWA app home screen with Treat Me, Clinic visit and Remote visit"></div></div>
   </div>
@@ -546,9 +569,9 @@ h2{font-size:60px;line-height:1.2;text-transform:uppercase;letter-spacing:.02em}
     <p class="eyebrow" data-a>Care plan · Comprehensive digital health passport</p>
     <h2 data-a>A personal plan, <em>tracked with your doctor</em></h2>
     <div style="position:absolute;left:128px;right:128px;top:530px;display:grid;grid-template-columns:repeat(3,1fr);gap:28px">
-      <div class="card" data-a><div class="icbox"><i class="ph-fill ph-lightbulb"></i></div><h3>Tailored guidance</h3><p>Step-by-step health plans customized to your medical needs and lifestyle.</p></div>
-      <div class="card" data-a><div class="icbox"><i class="ph-fill ph-chart-bar"></i></div><h3>Continuous tracking</h3><p>Monitor your progress alongside your doctor as your care plan moves forward.</p></div>
-      <div class="card hero" data-a><div class="icbox"><i class="ph-fill ph-check-circle"></i></div><h3>Proactive support</h3><p>Structured check-ins and ongoing expert direction keep your health goals on track.</p></div>
+      <div class="card" data-a><div class="icbox"><i class="ph-fill ph-lightbulb" aria-hidden="true"></i></div><h3>Tailored guidance</h3><p>Step-by-step health plans customized to your medical needs and lifestyle.</p></div>
+      <div class="card" data-a><div class="icbox"><i class="ph-fill ph-chart-bar" aria-hidden="true"></i></div><h3>Continuous tracking</h3><p>Monitor your progress alongside your doctor as your care plan moves forward.</p></div>
+      <div class="card hero" data-a><div class="icbox"><i class="ph-fill ph-check-circle" aria-hidden="true"></i></div><h3>Proactive support</h3><p>Structured check-ins and ongoing expert direction keep your health goals on track.</p></div>
     </div>
   </div>
   <div class="foot"><img src="img/logo-color.svg" alt=""><span class="pg">14</span></div>
@@ -586,6 +609,8 @@ h2{font-size:60px;line-height:1.2;text-transform:uppercase;letter-spacing:.02em}
 </div>
 </div>
 
+<div id="rotate" role="note"><i class="ph-fill ph-device-rotate" aria-hidden="true"></i><span>Turn your phone sideways to read the slides.</span><button type="button" id="rotateX" aria-label="Dismiss"><i class="ph-bold ph-x" aria-hidden="true"></i></button></div>
+<p class="sr-only" id="live" aria-live="polite"></p>
 <nav class="ctrl" id="ctrl" aria-label="Slide navigation">
   <button id="fs" title="Full screen" aria-label="Full screen"><i data-i="max"></i></button>
   <button id="back" aria-label="Previous slide"><i data-i="left"></i></button>
@@ -627,6 +652,13 @@ h2{font-size:60px;line-height:1.2;text-transform:uppercase;letter-spacing:.02em}
   });
 
   var stage=document.getElementById('stage'), slides=[].slice.call(stage.querySelectorAll('.slide')), N=slides.length;
+  stage.setAttribute('role','region'); stage.setAttribute('aria-roledescription','slide deck'); stage.setAttribute('aria-label',document.title);
+  slides.forEach(function(s,i){ s.setAttribute('role','group'); s.setAttribute('aria-roledescription','slide');
+    var h=s.querySelector('h1,h2'); s.setAttribute('aria-label',(i+1)+' of '+N+(h?': '+h.textContent.replace(/\s+/g,' ').trim():'')); });
+  var live=document.getElementById('live');
+  (function(){ var r=document.getElementById('rotate'), x=document.getElementById('rotateX');
+    try{ if(sessionStorage.getItem('rotateHint')==='off') r.hidden=true; }catch(e){}
+    x.onclick=function(e){ e.stopPropagation(); r.hidden=true; try{ sessionStorage.setItem('rotateHint','off'); }catch(err){} }; })();
   var bar=document.getElementById('bar'), count=document.getElementById('count'), ctrl=document.getElementById('ctrl');
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   var cur=-1, anims=[], timers=[];
@@ -667,6 +699,7 @@ h2{font-size:60px;line-height:1.2;text-transform:uppercase;letter-spacing:.02em}
     cur=n;
     bar.style.width=((n+1)/N*100)+'%';
     count.textContent=(n+1)+' / '+N;
+    if(cur>=0&&live) live.textContent=slides[n].getAttribute('aria-label');
     try{history.replaceState(null,'','#slide-'+(n+1))}catch(e){}
   }
   function fromHash(){var m=/slide-(\d+)/.exec(location.hash);return m?Math.max(0,Math.min(N-1,+m[1]-1)):0}
