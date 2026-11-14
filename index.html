@@ -654,7 +654,7 @@ h2{font-size:60px;line-height:1.2;text-transform:uppercase;letter-spacing:.02em}
   var stage=document.getElementById('stage'), slides=[].slice.call(stage.querySelectorAll('.slide')), N=slides.length;
   stage.setAttribute('role','region'); stage.setAttribute('aria-roledescription','slide deck'); stage.setAttribute('aria-label',document.title);
   slides.forEach(function(s,i){ s.setAttribute('role','group'); s.setAttribute('aria-roledescription','slide');
-    var h=s.querySelector('h1,h2'); s.setAttribute('aria-label',(i+1)+' of '+N+(h?': '+h.textContent.replace(/\s+/g,' ').trim():'')); });
+    var h=s.querySelector('h1,h2'); if(h){h=h.cloneNode(true); [].forEach.call(h.querySelectorAll('br'),function(b){b.replaceWith(' ')});} s.setAttribute('aria-label',(i+1)+' of '+N+(h?': '+h.textContent.replace(/\s+/g,' ').trim():'')); });
   var live=document.getElementById('live');
   (function(){ var r=document.getElementById('rotate'), x=document.getElementById('rotateX');
     try{ if(sessionStorage.getItem('rotateHint')==='off') r.hidden=true; }catch(e){}
